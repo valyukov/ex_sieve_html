@@ -14,7 +14,7 @@ for Phoenix which helps to build [ExSieve](https://github.com/valyukov/ex_sieve)
 ```elixir
 def deps do
   [
-    {:ex_sieve_html, github: "valyukov/ex_sieve_html"},
+    {:ex_sieve_html, "~> 0.1.0"},
   ]
 end
 ```
