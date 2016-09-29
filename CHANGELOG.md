@@ -1,4 +1,7 @@
 # Changelog
+## 0.3.0
+  * Add field detection to append direction symbol condition
+  * Test fixes
 
 ## 0.2.0
   * Add direction symbol to link text (it can be disabled by arrow: false).
