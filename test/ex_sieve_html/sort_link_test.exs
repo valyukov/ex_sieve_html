@@ -40,7 +40,7 @@ defmodule ExSieve.HTML.SortLinkTest do
     end
 
     test "return default dirrection for new s value", %{conn: conn} do
-      html = ~s(<a class=\"desc\" href=\"/?q[s]=id+desc\">test ▲</a>)
+      html = ~s(<a class=\"desc\" href=\"/?q[s]=id+desc\">test</a>)
 
       result =
         conn

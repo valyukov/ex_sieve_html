@@ -21,7 +21,7 @@ defmodule ExSieve.HTML.SortLink do
     dir = to_string(dir)
     opts = opts |> Keyword.put(:class, append_class(class, dir))
 
-    text = if has_sorted?(raw_params, as) and append_arrow? do
+    text = if field_sorted?(raw_params, as, field) and append_arrow? do
       append_symbol(text, dir)
     else
       text
@@ -52,11 +52,13 @@ defmodule ExSieve.HTML.SortLink do
   end
 
 
-  def has_sorted?(params, as) do
+  def field_sorted?(params, as, field) do
     Map.has_key?(params, as)
       and is_map(params[as])
       and Map.has_key?(params[as], @sort_key)
       and String.length(params[as][@sort_key]) > 0
+      and is_binary(params[as][@sort_key])
+      and same_field?(params[as][@sort_key], field)
   end
 
   defp append_symbol(text, dir) do
