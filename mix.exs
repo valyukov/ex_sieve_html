@@ -4,7 +4,7 @@ defmodule ExSieve.HTML.Mixfile do
   def project do
     [
       app: :ex_sieve_html,
-      version: "0.1.0",
+      version: "0.2.0",
       elixir: "~> 1.3",
       elixirc_paths: elixirc_paths(Mix.env),
       package: package,
@@ -42,6 +42,7 @@ defmodule ExSieve.HTML.Mixfile do
       maintainers: ["Vlad Alyukov"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/valyukov/ex_sieve_html"},
+      files: ["README.md", "LICENSE", "mix.exs", "lib/*", "CHANGELOG.md"]
     ]
   end
 end
