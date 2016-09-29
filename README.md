@@ -82,7 +82,6 @@ set form send method, in this example it changes to `POST`. You can use any othe
 This helps to make up sort link (usually it used in table headers). Pay attention to this: `to: &(post_path(@conn, :index,
 &1))` attribute, it wraps `post_path/3` helper  into anonimous functions that allows to call it inside `sort_link/4` with
 modifyed parameters (sort direction).
-
 ```eex
 <table>
   <thead>
@@ -105,6 +104,12 @@ modifyed parameters (sort direction).
     ...
   </tbody>
 ```
+#### Options
+`as:` ExSieve query object namespase. by default `:q`
+
+`arrow:` This append arrow to link text, default `false`
+
+`default_direction` This setting up default sort direction that append when field doesn't sort yet, default `:desc`
 
 ## Contributing
 
