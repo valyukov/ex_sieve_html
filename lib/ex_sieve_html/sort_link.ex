@@ -30,7 +30,7 @@ defmodule ExSieve.HTML.SortLink do
     value = params |> get_in(path)
 
     dir = if same_field?(value, field) do
-            value || value |> parse_direction |> opposite_direction(default_dir)
+            value |> parse_direction |> opposite_direction(default_dir)
           else
             default_dir
           end
