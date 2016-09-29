@@ -26,13 +26,12 @@ defmodule ExSieve.HTML.SortLinkTest do
       assert html == result
     end
 
-    test "return a tag with sort params with as:", %{conn: conn} do
+    test "return a tag with sort params in query object namespace :search", %{conn: conn} do
       html = ~s(<a class=\"desc\" href=\"/?search[s]=id+desc\">test</a>)
 
       result =
         conn
         |> Plug.Parsers.call([])
-        |> Map.put(:params, %{"q" => %{"s" => "name desc"}})
         |> ExSieve.HTML.sort_link(:id, "test", as: :search, to: &(assert_params_path(conn, :search, &1)))
         |> Phoenix.HTML.safe_to_string
 
