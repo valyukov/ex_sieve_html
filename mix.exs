@@ -31,7 +31,7 @@ defmodule ExSieve.HTML.Mixfile do
     [
       {:credo, "~> 0.4", only: :dev},
       {:dialyxir, "~> 0.3.5", only: :dev},
-      {:ex_doc, "~> 0.13.0", only: :dev},
+      {:ex_doc, "~> 0.14.0", only: :dev},
       {:phoenix, "~> 1.2.1", only: :test},
       {:phoenix_html, "~> 2.7"}
     ]
