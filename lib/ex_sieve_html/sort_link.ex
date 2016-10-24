@@ -3,6 +3,7 @@ defmodule ExSieve.HTML.SortLink do
 
   import Phoenix.HTML.Link, only: [link: 2]
 
+  @direction_separator " "
   @directions ~w(desc asc)
   @direction_symbols %{"asc" => "▼", "desc" => "▲"}
   @sort_key "s"
@@ -46,7 +47,7 @@ defmodule ExSieve.HTML.SortLink do
             default_dir
           end
 
-    params = put_in(params, path, "#{field} #{dir}")
+    params = put_in(params, path, "#{field}#{@direction_separator}#{dir}")
 
     {params, dir}
   end
@@ -66,7 +67,7 @@ defmodule ExSieve.HTML.SortLink do
   end
 
   defp same_field?(value, field) do
-    value |> String.starts_with?(to_string(field))
+    value |> String.starts_with?("#{to_string(field)}#{@direction_separator}")
   end
 
   defp parse_direction(value) do

@@ -38,7 +38,7 @@ defmodule ExSieve.HTML.SortLinkTest do
       assert html == result
     end
 
-    test "return default dirrection for new s value", %{conn: conn} do
+    test "return default direction for new s value", %{conn: conn} do
       html = ~s(<a class=\"desc\" href=\"/?q[s]=id+desc\">test</a>)
 
       result =
@@ -68,6 +68,18 @@ defmodule ExSieve.HTML.SortLinkTest do
       result =
         conn
         |> Plug.Parsers.call([])
+        |> ExSieve.HTML.sort_link(:name, "test", to: &(assert_params_path(conn, :search, &1)))
+        |> Phoenix.HTML.safe_to_string
+
+      assert html == result
+    end
+
+    test "doesn't append arrow when field not sorted yet but very similar", %{conn: conn} do
+      html = ~s(<a class=\"desc\" href=\"/?q[s]=name+desc\">test</a>)
+
+      result =
+        conn
+        |> Map.put(:params, %{"q" => %{"s" => "name_foo desc"}})
         |> ExSieve.HTML.sort_link(:name, "test", to: &(assert_params_path(conn, :search, &1)))
         |> Phoenix.HTML.safe_to_string
 
