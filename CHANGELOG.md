@@ -1,4 +1,6 @@
 # Changelog
+## 0.5.0
+  * Fix detect sort direction condition.
 ## 0.4.0
   * Extend ExSieve.HTML.sort_link/4 spec
 ## 0.3.0
